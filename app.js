@@ -1,5 +1,5 @@
 
-// Dynamic fence quontity
+// Dynamic fence quantity
 let fences = document.querySelectorAll('.fence');
 let fencePos = 276;
 let fenceSize = 163;

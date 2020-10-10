@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Creepster&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 * {
   box-sizing: border-box;
 }
@@ -132,10 +132,109 @@ main {
 #spinner {
   width: 100%;
   height: 100%;
+  position: relative;
 }
-#spinner svg {
+#spinner img {
   height: 100%;
   width: 100%;
+}
+#spinner_logo_wrapper {
+  position: absolute;
+  text-align: center;
+  width: 46%;
+  top: 16.5%;
+  left: 22.5%;
+}
+.spinner_logo {
+  margin: 0;
+  font-family: Creepster, cursive;
+  font-weight: 400;
+  font-size: 18px;
+  filter: blur(0.8px);
+  color: #feeacb;
+  text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
+    0 0 20px #ab6126, 0 0 25px #ab6126, 0 0 30px #ab6126, 0 0 35px #ab6126;
+}
+#spinner_screen {
+  position: absolute;
+  width: 62.904%;
+  height: 31%;
+  text-align: center;
+  top: 46.7%;
+  left: 14.1%;
+  border: 1px solid #334033;
+  border-radius: 32px;
+  background: #000;
+}
+.spinner_screen_option {
+  margin-top: 15%;
+  font-family: Creepster, cursive;
+  font-weight: 400;
+  font-size: 18px;
+  filter: blur(0.8px);
+  color: #9cff98;
+  text-shadow: 0 0 5px #12e407, 0 0 10px #12e407, 0 0 15px #12e407,
+    0 0 20px #42922d, 0 0 25px #42922d, 0 0 30px #42922d, 0 0 35px #42922d;
+}
+#slot-spin-wrapper {
+  position: absolute;
+  left: 31.5%;
+  width: 27.678%;
+  height: 13.263%;
+  bottom: 0;
+  margin-bottom: 2.3%;
+  cursor: pointer;
+}
+#slot-spin-wrapper:active {
+  height: 10.2%;
+  margin-bottom: 2.5%;
+}
+#slot-spin-text {
+  position: absolute;
+  margin: 0;
+  text-align: center;
+  top: 5%;
+  left: 0;
+  font-family: Creepster, cursive;
+  font-weight: 400;
+  font-size: 12px;
+  width: 100%;
+  height: 50%;
+  z-index: 10;
+  transform: rotateX(60deg);
+  user-select: none;
+}
+#slot-spin-button {
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#slot-spin-button div {
+  position: absolute;
+}
+#top {
+  border: 2px solid #f7a324;
+  width: 100%;
+  height: 53.191%;
+  border-radius: 50%;
+  background-color: #f77524;
+}
+#mid {
+  border-left: 2px solid #f7a324;
+  border-right: 2px solid #f7a324;
+  width: 100%;
+  height: 34.042%;
+  background-color: #f77524;
+  top: 26.5957%;
+}
+#bot {
+  border: 2px solid #f7a324;
+  width: 100%;
+  height: 53.191%;
+  border-radius: 50%;
+  background-color: #f77524;
+  top: 34.042%;
 }
 #recipe_wrapper {
   max-width: 539px;
@@ -162,6 +261,7 @@ main {
   margin-top: 25px;
   font-family: Creepster, cursive;
   font-size: 29px;
+  font-weight: 400;
 }
 .description {
   margin: 0 25px;
@@ -195,7 +295,7 @@ main {
 #directions_description {
   margin-top: 28px;
 }
-#spin_button {
+#spin_again_button {
   font: inherit;
   width: 245px;
   height: 36px;
@@ -204,14 +304,12 @@ main {
   font-size: 10px;
   font-weight: 700;
   border-radius: 15.8px;
-  
   cursor: pointer;
 }
-#spin_button:focus {
+#spin_again_button:focus {
   outline: 0;
 }
-
-#spin_button_link{
+#spin_again_button_link {
   text-decoration: none;
   margin-top: 20px;
   margin-bottom: 15px;
@@ -244,85 +342,36 @@ main {
 .social_media_icon {
   margin-top: 30px;
 }
-
-@media (min-width: 1355px) {
-  #left_web {
-    top: auto;
-    left: -428px;
-    bottom: 65px;
-    width: 1070px;
+@media (min-width: 420px) {
+  .spinner_logo {
+    font-size: 22px;
   }
-  #right_web {
-    top: auto;
-    right: -540px;
-    bottom: 115px;
-    width: 1070px;
-  }
-  #top_left_web {
-    right: 49.8%;
-    top: -65px;
-    width: 1020px;
-  }
-  #top_right_web {
-    left: 49.8%;
-    top: -65px;
-    width: 1020px;
-  }
-  main {
-    margin: 120px 20px;
-  }
-
-  #spinner_recipe_wrapper {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    max-width: 1340px;
-  }
-  #spinner_wrapper {
-    height: 703px;
-    margin-bottom: 0;
-  }
-  #recipe_wrapper {
-    margin-top: 0;
-  }
-
-  #social_media_wrapper {
-    font-size: 20px;
-    padding: 0 15px;
-    margin-left: 75px;
-    margin-bottom: 130px;
-    margin-top: 50px;
-  }
-  #social_media_text {
-    margin: 0;
+  .spinner_screen_option {
+    font-size: 22px;
   }
 }
-
-@media (max-width: 1751px) {
-  #social_media_wrapper {
-    margin-left: 0;
+@media (min-width: 500px) {
+  .spinner_logo {
+    font-size: 32px;
+  }
+  .spinner_screen_option {
+    font-size: 32px;
+  }
+  #slot-spin-text {
+    font-size: 18px;
   }
 }
-
-@media (min-width: 1636px) {
-  main {
-    width: auto;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin: 120px 20px;
-    margin-bottom: 0;
+@media (min-width: 760px) {
+  .spinner_screen_option {
+    font-size: 48px;
   }
-  #social_media_wrapper {
-    margin-bottom: 0;
+  .spinner_logo {
+    font-size: 50px;
   }
-  #social_media_icons {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  #slot-spin-text {
+    font-size: 30px;
+    transform: rotateX(50deg);
   }
-}
-
-@media (min-width: 700px) {
   #recipe_wrapper {
     width: 539px;
     height: 703px;
@@ -354,12 +403,84 @@ main {
   #directions_description {
     margin-top: 37px;
   }
-  #spin_button {
+  #spin_again_button {
     width: 225px;
     height: 31px;
     font-size: 14.7px;
   }
-  #spin_button_link{
+  #spin_again_button_link {
     margin-top: 29px;
+  }
+}
+@media (min-width: 1355px) {
+  #left_web {
+    top: auto;
+    left: -428px;
+    bottom: 65px;
+    width: 1070px;
+  }
+  #right_web {
+    top: auto;
+    right: -540px;
+    bottom: 115px;
+    width: 1070px;
+  }
+  #top_left_web {
+    right: 49.8%;
+    top: -65px;
+    width: 1020px;
+  }
+  #top_right_web {
+    left: 49.8%;
+    top: -65px;
+    width: 1020px;
+  }
+  main {
+    margin: 120px 20px;
+  }
+  #spinner_recipe_wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 1340px;
+  }
+  #spinner_wrapper {
+    height: 703px;
+    margin-bottom: 0;
+  }
+  #recipe_wrapper {
+    margin-top: 0;
+  }
+  #social_media_wrapper {
+    font-size: 20px;
+    padding: 0 15px;
+    margin-left: 75px;
+    margin-bottom: 130px;
+    margin-top: 50px;
+  }
+  #social_media_text {
+    margin: 0;
+  }
+}
+@media (min-width: 1636px) {
+  main {
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 120px 20px;
+    margin-bottom: 0;
+  }
+  #social_media_wrapper {
+    margin-bottom: 0;
+  }
+  #social_media_icons {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media (max-width: 1751px) {
+  #social_media_wrapper {
+    margin-left: 0;
   }
 }
