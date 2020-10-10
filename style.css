@@ -112,7 +112,7 @@ main {
   height: 100%;
   justify-content: center;
   align-items: center;
-  margin: 120px 20px;
+  margin: 120px 33px;
   margin-bottom: 0;
 }
 #spinner_recipe_wrapper {
@@ -204,17 +204,17 @@ main {
   font-size: 10px;
   font-weight: 700;
   border-radius: 15.8px;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  
   cursor: pointer;
 }
 #spin_button:focus {
   outline: 0;
 }
 
-#spin_button a{
+#spin_button_link{
   text-decoration: none;
-  color: black;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 #social_media_wrapper {
   color: #fff;
@@ -244,6 +244,7 @@ main {
 .social_media_icon {
   margin-top: 30px;
 }
+
 @media (min-width: 1355px) {
   #left_web {
     top: auto;
@@ -268,56 +269,69 @@ main {
     width: 1020px;
   }
   main {
+    margin: 120px 20px;
+  }
+
+  #spinner_recipe_wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 1340px;
+  }
+  #spinner_wrapper {
+    height: 703px;
+    margin-bottom: 0;
+  }
+  #recipe_wrapper {
+    margin-top: 0;
+  }
+
+  #social_media_wrapper {
+    font-size: 20px;
+    padding: 0 15px;
+    margin-left: 75px;
+    margin-bottom: 130px;
+    margin-top: 50px;
+  }
+  #social_media_text {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1751px) {
+  #social_media_wrapper {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1636px) {
+  main {
     width: auto;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     margin: 120px 20px;
     margin-bottom: 0;
-    flex-wrap: wrap;
   }
-  #spinner_recipe_wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    max-width: 1340px;
-    height: auto;
-    height: 100%;
-    flex-wrap: wrap;
-  }
-  #spinner_wrapper {
-    width: auto;
-    height: 703px;
+  #social_media_wrapper {
     margin-bottom: 0;
   }
-  #spinner {
-    width: 100%;
-    height: 100%;
+  #social_media_icons {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
-  #spinner svg {
-    height: 100%;
-    width: 100%;
-  }
+}
+
+@media (min-width: 700px) {
   #recipe_wrapper {
     width: 539px;
     height: 703px;
-    margin-top: 0;
-
   }
   #recipe {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    border: 4px solid #e6e6e6;
     border-top-left-radius: 165.2px;
     border-top-right-radius: 165.2px;
     border-bottom-left-radius: 42px;
     border-bottom-right-radius: 42px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
   }
   #recipe_title {
     margin-top: 68px;
@@ -332,58 +346,20 @@ main {
   }
   #ingredients_directions_title {
     margin-top: 37px;
-    margin-bottom: 0;
     font-size: 18.4px;
-    font-weight: 700;
   }
   #ingredients_list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-left: 15px;
-    margin-top: 10px;
     font-size: 14.7px;
-    font-weight: 700;
-    text-align: start;
-  }
-  .ingredient_item p {
-    display: inline-block;
-    margin-bottom: 0;
-  }
-  .ingredient_svg {
-    display: inline;
   }
   #directions_description {
     margin-top: 37px;
   }
   #spin_button {
-    font: inherit;
     width: 225px;
     height: 31px;
-    border: none;
-    background: #f7a324;
     font-size: 14.7px;
-    font-weight: 700;
-    border-radius: 15.8px;
+  }
+  #spin_button_link{
     margin-top: 29px;
-    cursor: pointer;
-  }
-  #spin_button:focus {
-    outline: 0;
-  }
-  #social_media_wrapper {
-    font-size: 20px;
-    padding: 0 15px;
-    margin-left: 75px;
-    margin-bottom: 130px;
-    margin-top: 20px;
-  }
-  #social_media_text {
-    margin: 0;
-  }
-}
-@media (max-width: 1751px) {
-  #social_media_wrapper {
-    margin-left: 0;
   }
 }
