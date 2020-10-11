@@ -120,7 +120,6 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: auto;
   height: 100%;
   flex-wrap: wrap;
 }
@@ -149,34 +148,50 @@ main {
   margin: 0;
   font-family: Creepster, cursive;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   filter: blur(0.8px);
   color: #feeacb;
   text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
     0 0 20px #ab6126, 0 0 25px #ab6126, 0 0 30px #ab6126, 0 0 35px #ab6126;
 }
-#spinner_screen {
+#spinner_screen_wrapper {
   position: absolute;
   width: 62.904%;
   height: 31%;
-  text-align: center;
   top: 46.7%;
   left: 14.1%;
   border: 1px solid #334033;
   border-radius: 32px;
   background: #000;
+  perspective: 20000px;
+  overflow: hidden;
+}
+#spinner_screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  opacity: 0;
 }
 .spinner_screen_option {
-  margin-top: 15%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-top: 18%;
   font-family: Creepster, cursive;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   filter: blur(0.8px);
   color: #9cff98;
   text-shadow: 0 0 5px #12e407, 0 0 10px #12e407, 0 0 15px #12e407,
     0 0 20px #42922d, 0 0 25px #42922d, 0 0 30px #42922d, 0 0 35px #42922d;
+  transition: transform 1s;
 }
-#slot-spin-wrapper {
+
+#slot_spin_wrapper {
   position: absolute;
   left: 31.5%;
   width: 27.678%;
@@ -185,11 +200,11 @@ main {
   margin-bottom: 2.3%;
   cursor: pointer;
 }
-#slot-spin-wrapper:active {
+#slot_spin_wrapper:active {
   height: 10.2%;
   margin-bottom: 2.5%;
 }
-#slot-spin-text {
+#slot_spin_text {
   position: absolute;
   margin: 0;
   text-align: center;
@@ -204,13 +219,13 @@ main {
   transform: rotateX(60deg);
   user-select: none;
 }
-#slot-spin-button {
+#slot_spin_button {
   margin: auto;
   position: absolute;
   width: 100%;
   height: 100%;
 }
-#slot-spin-button div {
+#slot_spin_button div {
   position: absolute;
 }
 #top {
@@ -237,27 +252,40 @@ main {
   top: 34.042%;
 }
 #recipe_wrapper {
+  position: relative;
   max-width: 539px;
   width: 100%;
+  min-height: 445px;
   height: auto;
   margin-top: 85px;
-}
-#recipe {
-  width: 100%;
-  height: 100%;
   background: #fff;
   border: 4px solid #e6e6e6;
   border-top-left-radius: 80px;
   border-top-right-radius: 80px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+#recipe {
+  width: 100%;
+  height: 100%;
   text-align: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  opacity: 0;
+  display: none;
+  transition: opacity 1s;
 }
-#recipe_title {
+#spin_for_recipe {
+  width: 100%;
+  position: absolute;
+  display: block;
+  opacity: 1;
+  transition: opacity 1s;
+}
+#recipe_title,
+#spin_for_recipe {
+  text-align: center;
   margin-top: 25px;
   font-family: Creepster, cursive;
   font-size: 29px;
@@ -276,6 +304,7 @@ main {
   font-weight: 700;
 }
 #ingredients_list {
+  width: auto;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -288,11 +317,12 @@ main {
 .ingredient_item p {
   display: inline-block;
   margin-bottom: 0;
+  margin-left: 5px;
 }
 .ingredient_svg {
   display: inline;
 }
-#directions_description {
+#directions {
   margin-top: 28px;
 }
 #spin_again_button {
@@ -350,39 +380,39 @@ main {
     font-size: 22px;
   }
 }
-@media (min-width: 500px) {
+@media (min-width: 566px) {
   .spinner_logo {
     font-size: 32px;
   }
   .spinner_screen_option {
     font-size: 32px;
   }
-  #slot-spin-text {
+  #slot_spin_text {
     font-size: 18px;
   }
 }
-@media (min-width: 760px) {
+@media (min-width: 804px) {
   .spinner_screen_option {
     font-size: 48px;
   }
   .spinner_logo {
     font-size: 50px;
   }
-  #slot-spin-text {
+  #slot_spin_text {
     font-size: 30px;
     transform: rotateX(50deg);
   }
   #recipe_wrapper {
     width: 539px;
-    height: 703px;
-  }
-  #recipe {
+    min-height: 703px;
     border-top-left-radius: 165.2px;
     border-top-right-radius: 165.2px;
     border-bottom-left-radius: 42px;
     border-bottom-right-radius: 42px;
   }
-  #recipe_title {
+
+  #recipe_title,
+  #spin_for_recipe {
     margin-top: 68px;
     font-family: Creepster, cursive;
     font-size: 48px;
@@ -400,7 +430,7 @@ main {
   #ingredients_list {
     font-size: 14.7px;
   }
-  #directions_description {
+  #directions {
     margin-top: 37px;
   }
   #spin_again_button {
@@ -441,6 +471,7 @@ main {
   #spinner_recipe_wrapper {
     flex-direction: row-reverse;
     justify-content: space-between;
+    align-items: flex-start;
     max-width: 1340px;
   }
   #spinner_wrapper {
@@ -455,7 +486,6 @@ main {
     padding: 0 15px;
     margin-left: 75px;
     margin-bottom: 130px;
-    margin-top: 50px;
   }
   #social_media_text {
     margin: 0;
@@ -465,13 +495,14 @@ main {
   main {
     width: auto;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: row;
     margin: 120px 20px;
     margin-bottom: 0;
   }
   #social_media_wrapper {
     margin-bottom: 0;
+    margin-top: 240px;
   }
   #social_media_icons {
     flex-direction: column;

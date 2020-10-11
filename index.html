@@ -20,12 +20,12 @@
                 <h1 class="spinner_logo">Halloween</h1>
                 <h1 class="spinner_logo">Coctail Recipes</h1>
               </div>
-              <div id="spinner_screen">
-                <h1 class="spinner_screen_option">The Spicy Vampire</h1>
+              <div id="spinner_screen_wrapper">
+                <div id="spinner_screen"></div>
               </div>
-              <div id="slot-spin-wrapper">
-                <h3 id="slot-spin-text">CLICK TO SPIN!</h3>
-                <div id="slot-spin-button">
+              <div id="slot_spin_wrapper">
+                <h3 id="slot_spin_text">CLICK TO SPIN!</h3>
+                <div id="slot_spin_button">
                   <div id="bot"></div>
                   <div id="mid"></div>
                   <div id="top"></div>
@@ -34,59 +34,15 @@
             </div>
           </div>
           <div id="recipe_wrapper">
+            <h1 id="spin_for_recipe">Spin for a recipe</h1>
             <div id="recipe">
-              <h1 id="recipe_title">The Spicy Vampire</h1>
-              <p class="description" id="recipe_description">
-                If your guests are out for blood, satisfy their cravings with
-                this vampire themed cocktail. This easy recipe is sure to please
-                four blood thirsty guests at your party.
-              </p>
+              <h1 id="recipe_title"></h1>
+              <p class="description" id="recipe_description"></p>
               <h3 id="ingredients_directions_title">
                 Ingredients & Directions:
               </h3>
-              <ul id="ingredients_list">
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>6 oz gold rum</p>
-                </li>
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>3 teaspoons of vanilla</p>
-                </li>
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>6 oz light cranberry juice</p>
-                </li>
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>6 oz orange juice</p>
-                </li>
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>6 dashes of Grenadine</p>
-                </li>
-                <li class="ingredient_item">
-                  <div class="ingredient_svg">
-                    <img src="./assets/pumpkin.svg" />
-                  </div>
-                  <p>3 dashes of cinnamon</p>
-                </li>
-              </ul>
-              <p class="description" id="directions_description">
-                Combine all ingredients and shake in a cocktail shaker. Then
-                serve on ice! Word of warning: too many Spicy Vampires may lead
-                to an unnatural fear of sunshine.
-              </p>
+              <ul id="ingredients_list"></ul>
+              <p class="description" id="directions"></p>
               <a id="spin_again_button_link" href="#container"
                 ><button id="spin_again_button">SPIN AGAIN</button></a
               >
@@ -138,6 +94,7 @@
         <img id="second_fence" class="fence" src="./assets/Fence.png" />
       </div>
     </div>
+    <script type="text/javascript" src="cocktails.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
