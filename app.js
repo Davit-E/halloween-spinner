@@ -106,6 +106,7 @@ function spin() {
   spinAgainButton.style.pointerEvents = 'none';
   let stopTime = Math.round(Math.random() * 1000 + 2000);
   let spinFrequency = 50;
+  spinForRecipe.style.opacity = 0;
   let myInt = setInterval(() => {
     selectedIndex++;
     rotateSpinner();
@@ -117,7 +118,6 @@ function spin() {
     setTimeout(() => {
       ingredientsList.textContent = '';
       fillInRecipe(cocktails[currentCell - 1]);
-      spinForRecipe.style.opacity = 0;
       recipe.style.opacity = 1;
       spinButton.style.pointerEvents = 'all';
       spinAgainButton.style.pointerEvents = 'all';

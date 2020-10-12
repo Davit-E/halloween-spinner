@@ -373,12 +373,32 @@ main {
 .social_media_icon {
   margin-top: 30px;
 }
+
+#logo-facebook:hover path {
+  fill: #1778f2;
+}
+#logo-twitter:hover path {
+  fill: #1da1f2;
+}
+
+#logo-instagram:not(:hover) path {
+  fill: #fff;
+}
+
+@media (min-width: 370px) {
+  #slot_spin_text {
+    font-size: 16px;
+  }
+}
 @media (min-width: 420px) {
   .spinner_logo {
-    font-size: 22px;
+    font-size: 21px;
   }
   .spinner_screen_option {
     font-size: 22px;
+  }
+  #slot_spin_text {
+    font-size: 17px;
   }
 }
 @media (min-width: 566px) {
@@ -389,7 +409,7 @@ main {
     font-size: 32px;
   }
   #slot_spin_text {
-    font-size: 18px;
+    font-size: 24px;
   }
 }
 @media (min-width: 804px) {
