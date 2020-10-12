@@ -14,6 +14,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow-y: scroll;
 }
 #container {
   position: relative;
@@ -163,7 +164,7 @@ main {
   border: 1px solid #334033;
   border-radius: 32px;
   background: #000;
-  perspective: 20000px;
+  perspective: 1000px;
   overflow: hidden;
 }
 #spinner_screen {
@@ -172,13 +173,14 @@ main {
   height: 100%;
   text-align: center;
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 5s;
   opacity: 0;
 }
 .spinner_screen_option {
   position: absolute;
   width: 100%;
   height: 100%;
+  background: #000;
   margin: 0;
   padding-top: 18%;
   font-family: Creepster, cursive;
@@ -186,9 +188,8 @@ main {
   font-size: 15px;
   filter: blur(0.8px);
   color: #9cff98;
-  text-shadow: 0 0 5px #12e407, 0 0 10px #12e407, 0 0 15px #12e407,
+  text-shadow: 0 0 5px #12e407, 0 0 10px #448840, 0 0 15px #12e407,
     0 0 20px #42922d, 0 0 25px #42922d, 0 0 30px #42922d, 0 0 35px #42922d;
-  transition: transform 1s;
 }
 
 #slot_spin_wrapper {

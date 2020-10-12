@@ -52,47 +52,32 @@ function fillInIngredients(ingredient, i) {
 
 //// Spinning ////
 let spinnerScreen = document.querySelector('#spinner_screen');
-let cocktailNames = cocktails.map((cocktail) => {
-  return cocktail.name;
-});
 
-let cocktailSpinOptions = cocktailNames.map((el) => {
+let cocktailNames = cocktails.forEach((el) => {
   let h1 = document.createElement('H1');
   h1.classList.add('spinner_screen_option');
-  h1.textContent = el;
-  return h1;
+  h1.textContent = el.name;
+  spinnerScreen.append(h1);
 });
-
-cocktailSpinOptions.forEach((el) => {
-  spinnerScreen.append(el);
-});
-
-spinnerScreen.offsetWidth;
-let spinOptionWidth = document.querySelector;
 
 let cells = spinnerScreen.querySelectorAll('.spinner_screen_option');
 let cellCount = cells.length;
 let selectedIndex = 0;
 let currentCell = 0;
-let cellWidth = cells[0].offsetWidth;
-let cellHeight = cells[0].offsetHeight;
 let radius, theta;
 
 initSpinner();
 
 function initSpinner() {
+  let cellHeight = spinnerScreen.offsetHeight;
   theta = 360 / cellCount;
-  let cellSize = cellWidth;
+  let cellSize = cellHeight;
   radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
-  for (let i = 0; i < cells.length; i++) {
+  for (let i = 0; i < cellCount; i++) {
     let cell = cells[i];
-    cell.style.opacity = 0;
     let cellAngle = theta * i;
     cell.style.transform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
-    if (i > 0) {
-      cell.style.opacity = 0;
-    }
   }
 
   rotateSpinner();
@@ -105,10 +90,6 @@ function rotateSpinner() {
   let angle = theta * selectedIndex * -1;
   spinnerScreen.style.transform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
-  for (let i = 0; i < cells.length; i++) {
-    let cell = cells[i];
-    cell.style.opacity = 1;
-  }
   currentCell++;
 }
 
@@ -121,10 +102,10 @@ spinButton.addEventListener('click', spin);
 spinAgainButton.addEventListener('click', spin);
 
 function spin() {
-  spinButton.style.pointerEvents = "none";
-  spinAgainButton.style.pointerEvents = "none";
+  spinButton.style.pointerEvents = 'none';
+  spinAgainButton.style.pointerEvents = 'none';
   let stopTime = Math.round(Math.random() * 1000 + 2000);
-  let spinFrequency = 20;
+  let spinFrequency = 50;
   let myInt = setInterval(() => {
     selectedIndex++;
     rotateSpinner();
@@ -138,20 +119,16 @@ function spin() {
       fillInRecipe(cocktails[currentCell - 1]);
       spinForRecipe.style.opacity = 0;
       recipe.style.opacity = 1;
-      spinButton.style.pointerEvents = "all";
-      spinAgainButton.style.pointerEvents = "all";
-      for (let i = 0; i < cells.length; i++) {
-        let cell = cells[i];
-        if (i === currentCell-1) {
-          cell.style.opacity = 1;
-        } else {
-          cell.style.opacity = 0;
-        }
-      }
-    }, 1000);
+      spinButton.style.pointerEvents = 'all';
+      spinAgainButton.style.pointerEvents = 'all';
+    }, 4500);
   }, stopTime);
 
   setTimeout(() => {
     spinnerScreen.style.opacity = 1;
   }, 500);
 }
+
+window.addEventListener('resize', () => {
+  location.reload();
+});
