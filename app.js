@@ -6,7 +6,6 @@ let fenceSize = 163;
 let fenceWrapper = document.querySelector('#fence_wrapper');
 
 let fenceImg = document.createElement('IMG');
-// let fenceQuantity = Math.round(window.innerWidth / 140);
 fenceQuantity = 12;
 
 for (let i = 0; i < fenceQuantity; i++) {
@@ -84,7 +83,7 @@ function initSpinner() {
 }
 
 function rotateSpinner() {
-  if (currentCell > 3) {
+  if (currentCell > cellCount - 1) {
     currentCell = 0;
   }
   let angle = theta * selectedIndex * -1;
@@ -121,6 +120,9 @@ function spin() {
       recipe.style.opacity = 1;
       spinButton.style.pointerEvents = 'all';
       spinAgainButton.style.pointerEvents = 'all';
+      setTimeout(() => {
+        recipe.scrollIntoView();
+      }, 700);
     }, 4500);
   }, stopTime);
 
