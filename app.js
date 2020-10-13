@@ -96,7 +96,7 @@ function rotateSpinner() {
 let spinForRecipe = document.querySelector('#spin_for_recipe');
 let recipe = document.querySelector('#recipe');
 
-let spinButton = document.querySelector('#slot_spin_wrapper');
+let spinButton = document.querySelector('#spinner');
 let spinAgainButton = document.querySelector('#spin_again_button');
 spinButton.addEventListener('click', spin);
 spinAgainButton.addEventListener('click', spin);

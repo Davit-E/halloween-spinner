@@ -133,8 +133,9 @@ main {
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
-#spinner img {
+#spinner_svg {
   height: 100%;
   width: 100%;
 }
@@ -146,6 +147,7 @@ main {
   left: 22.5%;
 }
 .spinner_logo {
+  user-select: none;
   margin: 0;
   font-family: Creepster, cursive;
   font-weight: 400;
@@ -177,6 +179,7 @@ main {
   opacity: 0;
 }
 .spinner_screen_option {
+  user-select: none;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -199,9 +202,8 @@ main {
   height: 13.263%;
   bottom: 0;
   margin-bottom: 2.3%;
-  cursor: pointer;
 }
-#slot_spin_wrapper:active {
+#spinner:active #slot_spin_wrapper{
   height: 10.2%;
   margin-bottom: 2.5%;
 }
