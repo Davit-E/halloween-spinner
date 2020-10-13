@@ -83,13 +83,14 @@ function initSpinner() {
 }
 
 function rotateSpinner() {
+  selectedIndex++;
+  currentCell++;
   if (currentCell > cellCount - 1) {
     currentCell = 0;
   }
   let angle = theta * selectedIndex * -1;
   spinnerScreen.style.transform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
-  currentCell++;
 }
 
 let spinForRecipe = document.querySelector('#spin_for_recipe');
@@ -103,32 +104,41 @@ spinAgainButton.addEventListener('click', spin);
 function spin() {
   spinButton.style.pointerEvents = 'none';
   spinAgainButton.style.pointerEvents = 'none';
-  let stopTime = Math.round(Math.random() * 1000 + 2000);
-  let spinFrequency = 50;
   spinForRecipe.style.opacity = 0;
-  let myInt = setInterval(() => {
-    selectedIndex++;
-    rotateSpinner();
-  }, spinFrequency);
+  // Parameters
+  let stopTime = Math.floor(Math.random() * 1000 + 2000);
+  let randChoice = Math.floor(Math.random() * cellCount);
+  let spinFrequency = 50;
+  let firstInt = setInterval(rotateSpinner, spinFrequency);
   setTimeout(() => {
-    clearInterval(myInt);
-    recipe.style.display = 'flex';
-    recipe.style.opacity = 0;
-    setTimeout(() => {
-      ingredientsList.textContent = '';
-      fillInRecipe(cocktails[currentCell - 1]);
-      recipe.style.opacity = 1;
-      spinButton.style.pointerEvents = 'all';
-      spinAgainButton.style.pointerEvents = 'all';
-      setTimeout(() => {
-        recipe.scrollIntoView();
-      }, 700);
-    }, 4500);
+    clearInterval(firstInt);
+    let secondInt = setInterval(() => {
+      rotateSpinner();
+      if (randChoice === currentCell) {
+        handleStop(secondInt);
+      }
+    }, spinFrequency);
   }, stopTime);
 
   setTimeout(() => {
     spinnerScreen.style.opacity = 1;
   }, 500);
+}
+
+function handleStop(int){
+  clearInterval(int);
+  recipe.style.display = 'flex';
+  recipe.style.opacity = 0;
+  setTimeout(() => {
+    ingredientsList.textContent = '';
+    fillInRecipe(cocktails[currentCell]);
+    recipe.style.opacity = 1;
+    spinButton.style.pointerEvents = 'all';
+    spinAgainButton.style.pointerEvents = 'all';
+    setTimeout(() => {
+      recipe.scrollIntoView();
+    }, 700);
+  }, 4500);
 }
 
 window.addEventListener('resize', () => {
