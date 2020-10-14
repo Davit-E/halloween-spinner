@@ -77,6 +77,14 @@ function initSpinner() {
     let cellAngle = theta * i;
     cell.style.transform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    cell.style.msTransform =
+      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    cell.style.webkitTransform =
+      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    cell.style.MozTransform =
+      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    cell.style.OTransform =
+      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
   }
 
   rotateSpinner();
@@ -90,6 +98,14 @@ function rotateSpinner() {
   }
   let angle = theta * selectedIndex * -1;
   spinnerScreen.style.transform =
+    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
+  spinnerScreen.style.msTransform =
+    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
+  spinnerScreen.style.webkitTransform =
+    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
+  spinnerScreen.style.MozTransform =
+    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
+  spinnerScreen.style.OTransform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
 }
 
