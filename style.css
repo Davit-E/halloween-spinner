@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 html {
@@ -22,21 +21,8 @@ body {
   width: 100%;
   min-height: 100%;
   height: auto;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#542e47),
-    to(#842e5d)
-  );
-  background-image: -o-linear-gradient(top, #542e47, #842e5d);
   background-image: linear-gradient(to bottom, #542e47, #842e5d);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 #moon_wrapper {
@@ -88,8 +74,6 @@ body {
   top: 420px;
   width: 672px;
   height: auto;
-  -webkit-transform: rotate(270deg) scaleX(-1);
-  -ms-transform: rotate(270deg) scaleX(-1);
   transform: rotate(270deg) scaleX(-1);
   overflow: hidden;
 }
@@ -99,8 +83,6 @@ body {
   top: 420px;
   width: 672px;
   height: auto;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
   transform: rotate(90deg);
   overflow: hidden;
 }
@@ -117,7 +99,6 @@ body {
   top: -42px;
   width: 672px;
   height: auto;
-  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 main {
@@ -126,38 +107,21 @@ main {
   z-index: 100;
   top: 0;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: auto;
   height: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   margin: 120px 33px;
   margin-bottom: 0;
 }
 #spinner_recipe_wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 #spinner_wrapper {
@@ -183,9 +147,6 @@ main {
   left: 22.5%;
 }
 .spinner_logo {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   margin: 0;
   font-family: Creepster, cursive;
@@ -193,7 +154,7 @@ main {
   font-size: 15px;
   color: #feeacb;
   text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
-    0 0 20px #ab6126, 0 0 25px #ab6126;
+    0 0 20px #ab6126, 0 0 25px #ab6126, 0 0 30px #ab6126, 0 0 35px #ab6126;
 }
 .spinner_logo:last-of-type {
   text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
@@ -208,7 +169,6 @@ main {
   border: 1px solid #334033;
   border-radius: 32px;
   background: #000;
-  -webkit-perspective: 1000px;
   perspective: 1000px;
   overflow: hidden;
 }
@@ -217,19 +177,11 @@ main {
   width: 100%;
   height: 100%;
   text-align: center;
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 5s;
-  transition: -webkit-transform 5s;
-  -o-transition: transform 5s;
   transition: transform 5s;
-  transition: transform 5s, -webkit-transform 5s;
   opacity: 0;
 }
 .spinner_screen_option {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   position: absolute;
   width: 100%;
@@ -257,37 +209,28 @@ main {
   height: 10.2%;
   margin-bottom: 2.5%;
 }
-#slot_spin_text {
+#slot_spin_text_wrapper {
   position: absolute;
-  margin: 0;
   text-align: center;
   top: 5%;
   left: 0;
+  width: 100%;
+  height: 50%;
+  transform: rotateX(60deg);
+}
+#slot_spin_text {
+  margin: 0;
   font-family: Creepster, cursive;
   font-weight: 400;
   font-size: 12px;
-  width: 100%;
-  height: 50%;
-  -webkit-transform-origin: center;
-  -ms-transform: rotateX(60deg);
-  -moz-transform: rotateX(60deg);
-  -o-transform: rotateX(60deg);
-  -webkit-transform: rotateX(60deg);
-  transform: rotateX(60deg);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  z-index: 10;
   user-select: none;
-  color: rgb(185, 166, 255);
-  /* z-index: 200; */
 }
 #slot_spin_button {
   margin: auto;
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
 }
 #slot_spin_button div {
   position: absolute;
@@ -333,20 +276,11 @@ main {
   width: 100%;
   height: 100%;
   text-align: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   opacity: 0;
   display: none;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
   transition: opacity 1s;
 }
 #spin_for_recipe {
@@ -354,8 +288,6 @@ main {
   position: absolute;
   display: block;
   opacity: 1;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
   transition: opacity 1s;
 }
 #recipe_title,
@@ -424,18 +356,9 @@ main {
   font-size: 22px;
   text-align: center;
   width: 280px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   overflow: auto;
   margin-top: 96px;
@@ -448,14 +371,9 @@ main {
   overflow: auto;
   width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 10px;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .social_media_icon {
@@ -503,22 +421,17 @@ main {
 @media (min-width: 804px) {
   .spinner_screen_option {
     font-size: 48px;
-    -webkit-filter: blur(0.8px);
     filter: blur(0.8px);
   }
   .spinner_logo {
     font-size: 50px;
-    -webkit-filter: blur(0.8px);
     filter: blur(0.8px);
+  }
+  #slot_spin_text_wrapper {
+    transform: rotateX(50deg);
   }
   #slot_spin_text {
     font-size: 30px;
-    -webkit-transform-origin: center;
-    -ms-transform: rotateX(50deg);
-    -moz-transform: rotateX(50deg);
-    -o-transform: rotateX(50deg);
-    -webkit-transform: rotateX(50deg);
-    transform: rotateX(50deg);
   }
   #recipe_wrapper {
     width: 539px;
@@ -587,15 +500,8 @@ main {
     margin: 120px 20px;
   }
   #spinner_recipe_wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
     max-width: 1340px;
   }
@@ -619,15 +525,8 @@ main {
 @media (min-width: 1636px) {
   main {
     width: auto;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
     align-items: flex-start;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
     margin: 120px 20px;
     margin-bottom: 0;
@@ -637,14 +536,8 @@ main {
     margin-top: 240px;
   }
   #social_media_icons {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
   }
 }
