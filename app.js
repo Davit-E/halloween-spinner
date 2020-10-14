@@ -158,3 +158,6 @@ function handleStop(int) {
 let windowWidth = window.innerWidth;
 
 window.addEventListener('resize', initSpinner);
+
+let clickToSpinText = document.querySelector('#slot_spin_text_wrapper');
+clickToSpinText.style.transform = 'rotateX(60deg)';
