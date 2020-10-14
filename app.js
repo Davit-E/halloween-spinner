@@ -125,7 +125,7 @@ function spin() {
   }, 500);
 }
 
-function handleStop(int){
+function handleStop(int) {
   clearInterval(int);
   recipe.style.display = 'flex';
   recipe.style.opacity = 0;
@@ -141,6 +141,10 @@ function handleStop(int){
   }, 4500);
 }
 
+let windowWidth = window.innerWidth;
+
 window.addEventListener('resize', () => {
-  location.reload();
+  if (windowWidth !== window.innerWidth) {
+    location.reload();
+  }
 });

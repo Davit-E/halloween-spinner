@@ -152,10 +152,13 @@ main {
   font-family: Creepster, cursive;
   font-weight: 400;
   font-size: 15px;
-  filter: blur(0.8px);
   color: #feeacb;
   text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
     0 0 20px #ab6126, 0 0 25px #ab6126, 0 0 30px #ab6126, 0 0 35px #ab6126;
+}
+.spinner_logo:last-of-type {
+  text-shadow: 0 0 5px #e1860d, 0 0 10px #e1860d, 0 0 15px #e1860d,
+    0 0 20px #ab6126, 0 0 25px #ab6126;
 }
 #spinner_screen_wrapper {
   position: absolute;
@@ -189,7 +192,6 @@ main {
   font-family: Creepster, cursive;
   font-weight: 400;
   font-size: 15px;
-  filter: blur(0.8px);
   color: #9cff98;
   text-shadow: 0 0 5px #12e407, 0 0 10px #448840, 0 0 15px #12e407,
     0 0 20px #42922d, 0 0 25px #42922d, 0 0 30px #42922d, 0 0 35px #42922d;
@@ -203,12 +205,12 @@ main {
   bottom: 0;
   margin-bottom: 2.3%;
 }
-#spinner:active #slot_spin_wrapper{
+#spinner:active #slot_spin_wrapper {
   height: 10.2%;
   margin-bottom: 2.5%;
 }
 #slot_spin_text {
-  position: absolute;
+  position: relative;
   margin: 0;
   text-align: center;
   top: 5%;
@@ -227,6 +229,9 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
 }
 #slot_spin_button div {
   position: absolute;
@@ -417,9 +422,11 @@ main {
 @media (min-width: 804px) {
   .spinner_screen_option {
     font-size: 48px;
+    filter: blur(0.8px);
   }
   .spinner_logo {
     font-size: 50px;
+    filter: blur(0.8px);
   }
   #slot_spin_text {
     font-size: 30px;
