@@ -210,9 +210,8 @@ main {
   margin-bottom: 2.5%;
 }
 #slot_spin_text {
-  /* position: relative; */
+  position: relative;
   margin: 0;
-  margin-top: 2%;
   text-align: center;
   top: 5%;
   left: 0;
@@ -223,7 +222,7 @@ main {
   height: 50%;
   /* transform: rotateX(60deg); */
   user-select: none;
-  color: rgb(158, 252, 163);
+  color: white;
   z-index: 200;
 }
 #slot_spin_button {
