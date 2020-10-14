@@ -83,7 +83,10 @@ async function initSpinner() {
     cell.style.transform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
   }
-  return 0;
+
+  let stopTime = Math.floor(Math.random() * 1000 + 2000);
+  let randChoice = Math.floor(Math.random() * cellCount);
+  return [stopTime, randChoice];
 }
 
 function rotateSpinner() {
@@ -114,13 +117,10 @@ spinButton.addEventListener('click', spin);
 spinAgainButton.addEventListener('click', spin);
 
 async function spin() {
-  await initSpinner();
+  [stopTime, randChoice] = await initSpinner();
   spinButton.style.pointerEvents = 'none';
   spinAgainButton.style.pointerEvents = 'none';
   spinForRecipe.style.opacity = 0;
-  // Parameters
-  let stopTime = Math.floor(Math.random() * 1000 + 2000);
-  let randChoice = Math.floor(Math.random() * cellCount);
   let spinFrequency = 50;
   let firstInt = setInterval(rotateSpinner, spinFrequency);
   setTimeout(() => {
