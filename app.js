@@ -102,7 +102,6 @@ spinButton.addEventListener('click', spin);
 spinAgainButton.addEventListener('click', spin);
 
 function spin() {
-  spinnerScreen.style.transition = 'transform 5s';
   spinButton.style.pointerEvents = 'none';
   spinAgainButton.style.pointerEvents = 'none';
   spinForRecipe.style.opacity = 0;
