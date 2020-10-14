@@ -66,11 +66,11 @@ let currentCell = 0;
 let radius, theta;
 
 initSpinner();
+rotateSpinner();
 
 function initSpinner() {
-  let cellHeight = spinnerScreen.offsetHeight;
   theta = 360 / cellCount;
-  let cellSize = cellHeight;
+  let cellSize = spinnerScreen.offsetHeight;
   radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
   for (let i = 0; i < cellCount; i++) {
     let cell = cells[i];
@@ -86,8 +86,6 @@ function initSpinner() {
     cell.style.OTransform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
   }
-
-  rotateSpinner();
 }
 
 function rotateSpinner() {
@@ -159,8 +157,4 @@ function handleStop(int) {
 
 let windowWidth = window.innerWidth;
 
-window.addEventListener('resize', () => {
-  if (windowWidth !== window.innerWidth) {
-    location.reload();
-  }
-});
+window.addEventListener('resize', initSpinner);
