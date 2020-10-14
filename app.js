@@ -65,18 +65,13 @@ let selectedIndex = 0;
 let currentCell = 0;
 let radius, theta;
 
-initSpinner();
-rotateSpinner();
-
-function initSpinner() {
+async function initSpinner() {
   theta = 360 / cellCount;
   let cellSize = spinnerScreen.offsetHeight;
   radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
   for (let i = 0; i < cellCount; i++) {
     let cell = cells[i];
     let cellAngle = theta * i;
-    cell.style.transform =
-      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
     cell.style.msTransform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
     cell.style.webkitTransform =
@@ -85,7 +80,10 @@ function initSpinner() {
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
     cell.style.OTransform =
       'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+    cell.style.transform =
+      'rotateX' + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
   }
+  return 0;
 }
 
 function rotateSpinner() {
@@ -95,8 +93,6 @@ function rotateSpinner() {
     currentCell = 0;
   }
   let angle = theta * selectedIndex * -1;
-  spinnerScreen.style.transform =
-    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
   spinnerScreen.style.msTransform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
   spinnerScreen.style.webkitTransform =
@@ -104,6 +100,8 @@ function rotateSpinner() {
   spinnerScreen.style.MozTransform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
   spinnerScreen.style.OTransform =
+    'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
+  spinnerScreen.style.transform =
     'translateZ(' + -radius + 'px) ' + 'rotateX' + '(' + angle + 'deg)';
 }
 
@@ -115,7 +113,8 @@ let spinAgainButton = document.querySelector('#spin_again_button');
 spinButton.addEventListener('click', spin);
 spinAgainButton.addEventListener('click', spin);
 
-function spin() {
+async function spin() {
+  await initSpinner();
   spinButton.style.pointerEvents = 'none';
   spinAgainButton.style.pointerEvents = 'none';
   spinForRecipe.style.opacity = 0;
@@ -156,7 +155,6 @@ function handleStop(int) {
 }
 
 let windowWidth = window.innerWidth;
-
 window.addEventListener('resize', initSpinner);
 
 // Button animation
@@ -173,7 +171,7 @@ spinButton.addEventListener(
 spinButton.addEventListener(
   'mouseup',
   () => {
-    setTimeout(()=> {
+    setTimeout(() => {
       spinButtonWrapper.style.height = '13.263%';
       spinButtonWrapper.style.marginBottom = '2.3%';
       spinButton.style.pointerEvents = 'none';
