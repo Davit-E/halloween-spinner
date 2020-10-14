@@ -221,9 +221,9 @@ main {
   font-size: 12px;
   width: 100%;
   height: 50%;
-  transform: rotateX(60deg);
+  /* transform: rotateX(60deg); */
   user-select: none;
-  color: white;
+  color: rgb(158, 252, 163);
   z-index: 200;
 }
 #slot_spin_button {
@@ -431,7 +431,7 @@ main {
   }
   #slot_spin_text {
     font-size: 30px;
-    transform: rotateX(50deg);
+    /* transform: rotateX(50deg); */
   }
   #recipe_wrapper {
     width: 539px;
