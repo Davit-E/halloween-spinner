@@ -158,3 +158,28 @@ function handleStop(int) {
 let windowWidth = window.innerWidth;
 
 window.addEventListener('resize', initSpinner);
+
+// Button animation
+let spinButtonWrapper = document.querySelector('#slot_spin_wrapper');
+spinButton.addEventListener(
+  'mousedown',
+  () => {
+    spinButtonWrapper.style.height = '10.2%';
+    spinButtonWrapper.style.marginBottom = '2.5%';
+  },
+  true
+);
+
+spinButton.addEventListener(
+  'mouseup',
+  () => {
+    setTimeout(()=> {
+      spinButtonWrapper.style.height = '13.263%';
+      spinButtonWrapper.style.marginBottom = '2.3%';
+      spinButton.style.pointerEvents = 'none';
+      spinAgainButton.style.pointerEvents = 'none';
+      spin();
+    }, 100);
+  },
+  true
+);

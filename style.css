@@ -205,10 +205,7 @@ main {
   bottom: 0;
   margin-bottom: 2.3%;
 }
-#spinner:active #slot_spin_wrapper {
-  height: 10.2%;
-  margin-bottom: 2.5%;
-}
+
 #slot_spin_text_wrapper {
   position: absolute;
   text-align: center;
